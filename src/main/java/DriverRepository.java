@@ -1,5 +1,3 @@
-package app;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -42,12 +40,13 @@ public class DriverRepository {
         return -1;
     }
 
-
     private static Driver getDriver(String driverID){
-        Path dbPath = Path.of("./app/db/driver.txt");
-
+        String path = "./db/driver.txt";
+        System.out.println("Trying to find " + path);
+        Path dbPath = Path.of(path);
+        System.out.println(dbPath.toAbsolutePath()); 
         if (!Files.exists(dbPath)) {
-            System.out.println("could not find ./db/driver.txt");
+            System.out.println("Error: Could not find " + path);
             return null;
         }
 

@@ -1,5 +1,3 @@
-package app;
-
 public class Driver {
     private String driverID;
     private String name;
