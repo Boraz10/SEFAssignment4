@@ -41,3 +41,6 @@ jobs:
 
       - name: Run Tests
         run: mvn test
+
+      - name: Run Tests and integration tests (I think we can remove one of these steps)
+        run: mvn verify
