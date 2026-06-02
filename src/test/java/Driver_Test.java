@@ -18,7 +18,7 @@ public class Driver_Test {
     }
 
     @Test
-    void shouldRejectInvalidDriverWithNoTwoSpecialCharacters() {
+    void shouldRejectInvalidDriverWithoutTwoSpecialCharacters() {
         
     }
 }
