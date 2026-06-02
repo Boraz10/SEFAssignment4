@@ -173,8 +173,13 @@ public class Driver {
 
 
 
-    public void updateDetails(String name, int experienceYears, String licenseType, String address, String birthdate) {
-        this.name = name;
+    public void updateDetails(int experienceYears, String licenseType, String address, String birthdate) {
+        
+        // D4: If a driver has more than 10 years of experience, their licenseType cannot be changed during update operations.
+        if (this.experienceYears > 10 && !this.licenseType.equals(licenseType)) {
+            System.out.println("Driver has more than 10 years of experience, so their license type cannot be changed.");
+            return;
+        }
         this.experienceYears = experienceYears;
         this.licenseType = licenseType;
         this.address = address;
