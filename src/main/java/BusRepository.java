@@ -25,6 +25,11 @@ public class BusRepository {
             return;
         }
 
+        // Validate bus details
+        if (!validateBus(bus)) {
+            return;
+        }
+
         // Check if bus of this ID is already present
         for (Bus other : busList) {
             String thisBusID = bus.getBusID();
@@ -53,7 +58,11 @@ public class BusRepository {
         // Iterate through list of busses to try to find the bus in question
         for (int i = 0; i < busList.size(); ++i) {
             Bus b = busList.get(i);
+
             if (b.getBusID().equals(busID)) {
+                // validate new bus details
+                if (!Bus.validateFuelType(fuelType)) { return; }
+
                 // Update bus details (in the arraylist, using the buses update function)
                 b.updateDetails(capacity, fuelLevel, fuelType);
 
@@ -76,6 +85,9 @@ public class BusRepository {
 
         // Get bus at that index
         Bus b = busList.get(index);
+
+        // validate new bus details
+        if (!Bus.validateFuelType(fuelType)) { return; }
 
         // Update that buses details
         b.updateDetails(capacity, fuelLevel, fuelType);
@@ -185,6 +197,16 @@ public class BusRepository {
         // Write changes to file
         Files.write(path, lines, StandardCharsets.UTF_8);
     }
+
+
+    // Validate bus
+    private static boolean validateBus(Bus bus) {
+        boolean a = Bus.validateBusID(bus.getBusID());
+        boolean b = Bus.validateFuelType(bus.getFuelType());
+
+        return (a && b);
+    }
 }
+
 
 

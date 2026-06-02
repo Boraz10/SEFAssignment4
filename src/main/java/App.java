@@ -12,8 +12,7 @@ public class App{
         System.out.println(driver.getName());
 
 
-        // Testing bus
-        System.out.println(BusRepository.retrieve("ss").getFuelType());
+        BusRepository.update("12345678", 12, 3, "qse");
 
 //        assert bus2 != null;
 //        System.out.println(bus2.getBusID());
