@@ -9,7 +9,7 @@ public class Driver_Test {
 
     @Test
     void shouldAcceptValidDriverID() {
-
+        assertTrue(Driver.isValidDriverID())
     }
 
     @Test
