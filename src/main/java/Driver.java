@@ -117,7 +117,7 @@ public class Driver {
 
     }
 
-    //INCOMPLETE // NEED TO ADD COMMENTS
+    //D3: Complete // NEED TO ADD COMMENTS
     public static boolean isValidBirthDate(String birthDate) {
         
         if(birthDate == null) {
