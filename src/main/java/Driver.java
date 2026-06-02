@@ -39,6 +39,7 @@ public class Driver {
         return birthdate;
     }
 
+    // D1: Complete 
     public static boolean isValidDriverID(String driverID) {
         //ID must meet the following requirements: 
         //1. Must not be null
@@ -85,6 +86,63 @@ public class Driver {
         return true;
 
     }
+
+    //D2: Complete
+    public static boolean isValidAddress(String address) {
+        
+        if(address == null) {
+            return false;
+        }  
+
+        String[] addressSection = address.split("\\|");
+
+        if (addressSection.length != 5) {
+            return false;
+        }
+
+        for (String section : addressSection) {
+            if (section.trim().isEmpty()) {
+                return false;
+            }
+        }
+
+        //Inspecting the first section to see if it only contains digits
+        for (int i = 0; i < addressSection[0].length(); i++) {
+            if (!Character.isDigit(addressSection[0].charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
+    //INCOMPLETE
+    public static boolean isValidBirthDate(String birthDate) {
+        
+
+        return true;
+
+    }
+
+    
+
+    //INCOMPLETE
+    public static boolean isValidLicenseUpdateRestriction(String driverID) {
+        
+
+        return true;
+
+    }
+
+    //INCOMPLETE
+    public static boolean isValidImmutableFields(String driverID) {
+        
+
+        return true;
+
+    }
+
 
 
     public void updateDetails(String name, int experienceYears, String licenseType, String address, String birthdate) {
