@@ -42,6 +42,20 @@ public class Driver {
     public static boolean isValidDriverID(String driverID) {
         //ID must meet the following requirements: 
         //1. Must not be null
+        //2.Must be 10 characters or more in length
+        if(driverID == null || driverID.length() != 10) {
+            return false;
+        }  
+
+        char firstNumber = driverID.charAt(0);
+        char secondNumber = driverID.charAt(1);
+
+        if (firstNumber < '2' || secondNumber < '2' ||
+            firstNumber > '9' || secondNumber > '9') {
+            return false;
+        }
+
+        
     }
 
 
