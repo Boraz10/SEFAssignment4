@@ -9,6 +9,8 @@ public class Driver_Test {
     void updateDetails() {
     }
 
+    //D1: DOULTON
+    //THINK ABOUT DOING DUPLICATE HERE BUT MAY NEED TO DO THAT IN REPOSITORY
     @Test
     void shouldAcceptValidDriverID() {
         assertTrue(Driver.isValidDriverID("38s%$dseSE"));
@@ -23,4 +25,6 @@ public class Driver_Test {
     void shouldRejectInvalidDriverWithoutTwoSpecialCharacters() {
         assertFalse(Driver.isValidDriverID("38s%ldseSE"));
     }
+
+    
 }
