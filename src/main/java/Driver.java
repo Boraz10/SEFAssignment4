@@ -1,5 +1,5 @@
 public class Driver {
-    private String driverID;
+    final private String driverID;
     private String name;
     private int experienceYears;
     private String licenseType; // Light, Medium, Heavy, PublicTransport
@@ -42,11 +42,12 @@ public class Driver {
     public static boolean isValidDriverID(String driverID) {
         //ID must meet the following requirements: 
         //1. Must not be null
-        //2.Must be 10 characters or more in length
+        //2.Must be 10 characters in length
         if(driverID == null || driverID.length() != 10) {
             return false;
         }  
 
+        //First two characters must be digits between 2 and 9
         char firstNumber = driverID.charAt(0);
         char secondNumber = driverID.charAt(1);
 
@@ -56,6 +57,33 @@ public class Driver {
         }
 
         
+        String middlePortion =  driverID.substring(2, 8);
+
+        int specialCharCount = 0;
+
+
+        for (char sc : middlePortion.toCharArray()) {
+            if (!Character.isLetterOrDigit(sc)) {
+                specialCharCount++;
+            }
+        }
+
+        // Middle portion needs 2 special characters between 3 and 8 
+        if (specialCharCount < 2) {
+            return false;
+        }
+
+        char secondLastLetter = driverID.charAt(8);
+        char lastLetter = driverID.charAt(9);
+
+        //Last two characters must be uppercase letters
+        if (secondLastLetter < 'A' || secondLastLetter > 'Z' ||
+            lastLetter < 'A' || lastLetter > 'Z') {
+            return false;
+        }
+
+        return true;
+
     }
 
 
