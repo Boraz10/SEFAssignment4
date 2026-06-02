@@ -1,12 +1,25 @@
 public class Driver {
-    final private String driverID;
-    private String name;
+    private final String driverID;
+    private final String name;
     private int experienceYears;
     private String licenseType; // Light, Medium, Heavy, PublicTransport
     private String address;
     private String birthdate;
 
     public Driver(String driverID, String name, int experienceYears, String licenseType, String address, String birthdate) {
+
+        if (!isValidDriverID(driverID)) {
+            System.out.println("This driver ID is invalid.");
+        }
+
+        if (!isValidAddress(address)) {
+            System.out.println("This address is invalid.");
+        }
+
+        if (!isValidBirthDate(birthdate)) {
+            System.out.println("This birth date is invalid.");
+        }
+
         this.driverID = driverID;
         this.name = name;
         this.experienceYears = experienceYears;
@@ -148,24 +161,6 @@ public class Driver {
         if (year.isEmpty() || !year.chars().allMatch(Character::isDigit)) {
             return false;
         }
-
-        return true;
-
-    }
-
-    
-
-    //INCOMPLETE
-    public static boolean isValidLicenseUpdateRestriction(String driverID) {
-        
-
-        return true;
-
-    }
-
-    //INCOMPLETE
-    public static boolean isValidImmutableFields(String driverID) {
-        
 
         return true;
 
