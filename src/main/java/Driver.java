@@ -117,9 +117,37 @@ public class Driver {
 
     }
 
-    //INCOMPLETE
+    //INCOMPLETE // NEED TO ADD COMMENTS
     public static boolean isValidBirthDate(String birthDate) {
         
+        if(birthDate == null) {
+            return false;
+        }  
+
+
+        if (birthDate.length() != 10) {
+            return false;
+        }
+
+        if (birthDate.charAt(2) != '-' || birthDate.charAt(5) != '-') {
+            return false;
+        }
+
+        String day = birthDate.substring(0, 2);
+        String month = birthDate.substring(3, 5);
+        String year = birthDate.substring(6, 10);
+
+        if (day.isEmpty() || !day.chars().allMatch(Character::isDigit)) {
+            return false;
+        }
+
+        if (month.isEmpty() || !month.chars().allMatch(Character::isDigit)) {
+            return false;
+        }
+
+        if (year.isEmpty() || !year.chars().allMatch(Character::isDigit)) {
+            return false;
+        }
 
         return true;
 
