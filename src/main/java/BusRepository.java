@@ -206,6 +206,17 @@ public class BusRepository {
 
         return (a && b);
     }
+
+    public static void clearDB(){
+        Path dbPath = getDBPath();
+        try{
+            Files.writeString(dbPath, "");
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
+
 }
 
 
