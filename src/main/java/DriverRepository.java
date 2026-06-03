@@ -102,18 +102,29 @@ public class DriverRepository {
     }
     private static Driver stringToDriver(String driverString){
         String[] driverArr = driverString.split("\\s+");
+        String id = driverArr[0];
+        String name = driverArr[1];
+        int experience = Integer.parseInt(driverArr[2]);
+        String license = driverArr[3];
+        String endLicense = driverArr[driverArr.length -1];
         
+        String address = "";
+        for(int i = 4; i < driverArr.length -1; i++){
+            address += driverArr[i];
+
+        }
         Driver driver = new Driver(
-                driverArr[0], 
-                driverArr[1], 
-                Integer.parseInt(driverArr[2]), 
-                driverArr[3], 
-                driverArr[4], 
-                driverArr[5]
+                id, 
+                name, 
+                experience, 
+                license, 
+                address, 
+                endLicense
         );
         
         return driver;
     }
+    
     private static String driverToString(Driver driver){
 
     //public Driver(String driverID, String name, int experienceYears, String licenseType, String address, String birthdate) {
@@ -126,6 +137,17 @@ public class DriverRepository {
             + driver.getBirthdate();
 
     }
+
+    public static void clearDB(){
+        Path dbPath = getDBPath();
+        try{
+            Files.writeString(dbPath, "");
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        
+    }
+
     private static Path getDBPath(){
         String path = "./db/driver.txt";
         Path dbPath = Path.of(path);
