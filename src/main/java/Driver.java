@@ -9,15 +9,15 @@ public class Driver {
     public Driver(String driverID, String name, int experienceYears, String licenseType, String address, String birthdate) {
 
         if (!isValidDriverID(driverID)) {
-            System.out.println("This driver ID is invalid.");
+            throw new IllegalArgumentException("This driver ID is invalid.");
         }
 
         if (!isValidAddress(address)) {
-            System.out.println("This address is invalid.");
+            throw new IllegalArgumentException("This address is invalid.");
         }
 
         if (!isValidBirthDate(birthdate)) {
-            System.out.println("This birth date is invalid.");
+            throw new IllegalArgumentException("This birth date is invalid.");
         }
 
         this.driverID = driverID;
@@ -169,6 +169,16 @@ public class Driver {
 
 
     public void updateDetails(int experienceYears, String licenseType, String address, String birthdate) {
+
+        if (!isValidAddress(address)) {
+            System.out.println("This address is invalid.");
+            return;
+        }
+
+        if (!isValidBirthDate(birthdate)) {
+            System.out.println("This birth date is invalid.");
+            return;
+        }
         
         // D4: If a driver has more than 10 years of experience, their licenseType cannot be changed during update operations.
         if (this.experienceYears > 10 && !this.licenseType.equals(licenseType)) {
