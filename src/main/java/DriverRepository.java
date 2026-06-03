@@ -11,7 +11,7 @@ public class DriverRepository {
             return;
         }
         Path dbPath = getDBPath();
-        String driverString = driverToString(driver);
+        String driverString = driverToString(driver) +"\n";
 
         try{
             Files.writeString(dbPath, driverString, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
