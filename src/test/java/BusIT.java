@@ -27,9 +27,13 @@ class BusIT {
 
         int prev = BusRepository.count();
         Bus buss = new Bus("8888888", "45mn!@opNO", 40, 30.0, "Diesel"); //driver id repeat
+        Bus busses = new Bus("888888888", "45mn!@opNO", 40, 30.0, "Diesel");
         BusRepository.add(buss);
+        BusRepository.add(busses);
         Bus stored = BusRepository.retrieve("8888888");
+        Bus cryoChamber = BusRepository.retrieve("8888888");
         assertNull(stored);
+        assertNull(cryoChamber);
         assertEquals(prev, BusRepository.count());
         BusRepository.clearDB();
     }
