@@ -13,7 +13,7 @@ class BusIT {
         
         BusRepository.clearDB(); // clear db
         // create new bus
-        Bus bus = new Bus("22222222", "45mn!@opNO", 40, 30.0, "Diesel");
+        Bus bus = new Bus("22222222", "68pq#&rsLM", 40, 30.0, "Diesel");
         BusRepository.add(bus); // add bus to repo
         // store bus object by busID search
         Bus stored = BusRepository.retrieve("22222222");
@@ -29,8 +29,8 @@ class BusIT {
 
         int prev = BusRepository.count();       //store previous bus count
         // Create 2 new busses with invalid bud id (7 , 9). in length
-        Bus buss = new Bus("8888888", "45mn!@opNO", 40, 30.0, "Diesel"); 
-        Bus busses = new Bus("888888888", "45mn!@opNO", 40, 30.0, "Diesel");
+        Bus buss = new Bus("8888888", "68pq#&rsLM", 40, 30.0, "Diesel");
+        Bus busses = new Bus("888888888", "68pq#&rsLM", 40, 30.0, "Diesel");
         // Add busses to repo
         BusRepository.add(buss);
         BusRepository.add(busses);
@@ -49,11 +49,11 @@ class BusIT {
     @Test
     void updateBusCheck() throws IOException {
         // create new bus 
-        Bus bus = new Bus("99999999", "45mn!@opNO", 40, 30.0, "Diesel");
+        Bus bus = new Bus("99999999", "68pq#&rsLM", 40, 30.0, "Diesel");
         // add bus
         BusRepository.add(bus);
         // update capacity to 20
-        BusRepository.update("99999999", "45mn!@opNO", 20, 30.0, "Diesel");
+        BusRepository.update("99999999", "68pq#&rsLM", 20, 30.0, "Diesel");
         // check that capcity ==2
         assertEquals(20, BusRepository.retrieve("99999999").getCapacity());
         BusRepository.clearDB(); // clear db
@@ -65,7 +65,7 @@ class BusIT {
     void busAccountedFor() {
         int prev = BusRepository.count(); // previous count value
         // create new bus
-        Bus bus = new Bus("66666666", "45mn!@opNO", 40, 30.0, "Diesel");
+        Bus bus = new Bus("66666666", "68pq#&rsLM", 40, 30.0, "Diesel");
         BusRepository.add(bus); // add bus
         // checks count has been updates.
         assertEquals(prev + 1,  BusRepository.count());
