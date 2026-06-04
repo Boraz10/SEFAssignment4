@@ -14,7 +14,7 @@ public class Bus {
         this.busID = busID;
         this.driver = DriverRepository.retrieve(driverID);
         this.capacity = capacity;
-        this.fuelLevel = fuelLevel;
+        this.fuelLevel = fuelLeFivel;
         this.fuelType = fuelType;
     }
 
@@ -122,7 +122,6 @@ public class Bus {
     public boolean validateDriverExperience(int experienceYears) {
         // B4: Validate experience
         if (fuelType.equals("Electricity")) {
-            assert newDriver != null;
             if (experienceYears < 5) {
                 System.out.println("A driver needs 5+ years of experience to drive an Electric vehicle");
                 return false;
@@ -135,7 +134,7 @@ public class Bus {
         if ( (licenseType.equals("Heavy") || licenseType.equals("PublicTransport") ) &&
                 !(fuelType.equals("Electricity") || fuelType.equals("Hybrid"))
         ) {
-            System.out.println("Only heavy or public transport lincenced drivers can drive an electric of hybrid vehicle");
+            System.out.println("Only heavy or public transport licenced drivers can drive an electric of hybrid vehicle");
             return false;
         }
 
