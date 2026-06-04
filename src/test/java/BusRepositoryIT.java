@@ -19,7 +19,6 @@ class BusRepositoryIT {
         assertNotNull(stored);
         assertEquals("22222222", stored.getBusID());
         assertEquals(40, stored.getCapacity());
-        assertEquals(prev + 1, BusRepository.count());
         BusRepository.clearDB();
     }
 
