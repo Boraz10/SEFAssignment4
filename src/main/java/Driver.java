@@ -130,9 +130,10 @@ public class Driver {
 
     }
 
-    //D3: Complete // NEED TO ADD COMMENTS
+    //D3: Complete 
     public static boolean isValidBirthDate(String birthDate) {
-        
+        //Validating Birthdate so it meets requirements for seperators/ensuring they are numbers
+        //and formatted correctly
         if(birthDate == null) {
             return false;
         }  
