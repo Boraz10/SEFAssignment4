@@ -127,6 +127,7 @@ public class Bus {
                 return false;
             }
         }
+        return true;
     }
 
     public boolean validateDriverLicense(String licenseType) {
