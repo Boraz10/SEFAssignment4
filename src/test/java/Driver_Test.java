@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class Driver_Test {
 
-    //D1: DOULTON
+    //DOULTON
     
     @Test
     void shouldAcceptValidDriverID() {
@@ -19,12 +19,12 @@ public class Driver_Test {
     }
 
     @Test
-    void shouldRejectInvalidDriverWithoutTwoSpecialCharacters() {
+    void shouldRejectInvalidDriverIDWithoutTwoSpecialCharacters() {
         assertFalse(Driver.isValidDriverID("38s%ldseSE"));
     }
 
 
-    //D2: DOULTON
+    // DOULTON
 
     @Test
     void shouldAcceptValidAddress() {
@@ -41,7 +41,7 @@ public class Driver_Test {
         assertFalse(Driver.isValidAddress("Ten|Swanston Street|Melbourne|VIC|Australia"));
     }
 
-    //D3: DOULTON 
+    //DOULTON 
 
     @Test
     void shouldAcceptValidBirthDate() {
@@ -58,7 +58,7 @@ public class Driver_Test {
         assertFalse(Driver.isValidBirthDate("1990-11-22"));
     }
 
-    //D4: DOULTON 
+    //DOULTON 
 
     @Test
     void shouldRejectLicenceChangeWhenExperienceIsGreaterTenYears() {
@@ -111,8 +111,8 @@ public class Driver_Test {
 
     
 
-    //D5: DOULTON 
-    
+    //DOULTON 
+
    @Test
     void shouldOnlyUpdateAuthorizedFields() {
        Driver driver = new Driver(
