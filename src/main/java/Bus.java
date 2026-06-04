@@ -106,6 +106,11 @@ public class Bus {
             System.out.println("Capacity cannot increase when updated");
             return false;
         }
+
+        if (updated < 0) {
+            System.out.println("Capacity cannot be negative");
+            return false;
+        }
         return true;
     }
 
