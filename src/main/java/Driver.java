@@ -2,7 +2,7 @@ public class Driver {
     private final String driverID;
     private final String name;
     private int experienceYears;
-    private String licenseType; // Light, Medium, Heavy, PublicTransportt
+    private String licenseType; // Light, Medium, Heavy, PublicTransport
     private String address;
     private String birthdate;
 
