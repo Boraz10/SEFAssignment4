@@ -58,7 +58,7 @@ public class Driver_Test {
         assertFalse(Driver.isValidBirthDate("1990-11-22"));
     }
 
-    //DOULTON UPDATE DETAILS FUNCTION REQUIREMENTS UNIT TESTING
+    //DOULTON UNIT TESTING FOR UPDATE DETAILS FUNCTION  
 
     @Test
     void shouldRejectLicenceChangeWhenExperienceIsGreaterTenYears() {
