@@ -102,7 +102,7 @@ public class Bus {
 
     // B2: Checking bus capacity
     public boolean validCapacity(double updated) {
-        if (updated > capacity) {
+        if (updated > fuelLevel) {
             System.out.println("Capacity cannot increase when updated");
             return false;
         }
@@ -132,14 +132,13 @@ public class Bus {
 
     public boolean validateDriverLicense(String licenseType) {
         // B5: Validate license type
-        if ( (licenseType.equals("Heavy") || licenseType.equals("PublicTransport") ) &&
-                !(fuelType.equals("Electricity") || fuelType.equals("Hybrid"))
-        ) {
-            System.out.println("Only heavy or public transport licenced drivers can drive an electric of hybrid vehicle");
-            return false;
+        if (fuelType.equals("Electricity") || fuelType.equals("Hybrid"))
+         {
+            if (!(licenseType.equals("Heavy") || licenseType.equals("PublicTransport"))) {
+             System.out.println("Only heavy or public transport licenced drivers can drive an electric of hybrid vehicle");
+             return false;
+         }
         }
-
-
         return true;
     }
 

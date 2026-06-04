@@ -130,7 +130,7 @@ class Bus_Test {
     @Test
     void B5_1() {
         Bus bus = new Bus("12345678", "abc", 20, 10, "Electricity");
-        assertTrue(bus.validateDriverLicense("publicTransport"));
+        assertTrue(bus.validateDriverLicense("PublicTransport"));
     }
 
     @Test
