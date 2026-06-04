@@ -60,8 +60,15 @@ public class Bus {
             return false;
         }
 
-        return validateDriver(driverID);
+        if (!validateDriverExperience(newDriver.getExperienceYears())) {
+            return false;
+        }
 
+        if (!validateDriverLicense(newDriver.getLicenseType())) {
+            return false;
+        }
+
+        return true;
     }
 
     // B1: Bus ID Rules
@@ -112,21 +119,20 @@ public class Bus {
         return true;
     }
 
-    public boolean validateDriver(String driverID) {
-        Driver newDriver = DriverRepository.retrieve(driverID);
-
+    public boolean validateDriverExperience(int experienceYears) {
         // B4: Validate experience
         if (fuelType.equals("Electricity")) {
             assert newDriver != null;
-            if (newDriver.getExperienceYears() < 5) {
+            if (experienceYears < 5) {
                 System.out.println("A driver needs 5+ years of experience to drive an Electric vehicle");
                 return false;
             }
         }
+    }
 
-
+    public boolean validateDriverLicense(String licenseType) {
         // B5: Validate license type
-        if ( (newDriver.getLicenseType().equals("Heavy") || newDriver.getLicenseType().equals("PublicTransport") ) &&
+        if ( (licenseType.equals("Heavy") || licenseType.equals("PublicTransport") ) &&
                 !(fuelType.equals("Electricity") || fuelType.equals("Hybrid"))
         ) {
             System.out.println("Only heavy or public transport lincenced drivers can drive an electric of hybrid vehicle");
