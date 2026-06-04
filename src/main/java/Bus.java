@@ -14,7 +14,7 @@ public class Bus {
         this.busID = busID;
         this.driver = DriverRepository.retrieve(driverID);
         this.capacity = capacity;
-        this.fuelLevel = fuelLeFivel;
+        this.fuelLevel = fuelLevel;
         this.fuelType = fuelType;
     }
 
