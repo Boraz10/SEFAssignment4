@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class Driver_Test {
 
     //D1: DOULTON
-    //THINK ABOUT DOING DUPLICATE HERE BUT MAY NEED TO DO THAT IN REPOSITORY
+    
     @Test
     void shouldAcceptValidDriverID() {
         assertTrue(Driver.isValidDriverID("38s%$dseSE"));
@@ -112,7 +112,7 @@ public class Driver_Test {
     
 
     //D5: DOULTON 
-    //May need to make a better one here
+    
    @Test
     void shouldOnlyUpdateAuthorizedFields() {
        Driver driver = new Driver(
