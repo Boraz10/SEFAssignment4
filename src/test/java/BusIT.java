@@ -24,7 +24,7 @@ class BusIT {
     }
 
     // Test 2:
-    // this is a test
+    
     @Test
     void badBusId() {
 
