@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterAll;
 class DriverIT {
     
     @AfterAll
-    void finish(){
+    static void finish(){
         populateDB();
     }
 
@@ -155,7 +155,7 @@ class DriverIT {
         }
     }
 
-    void populateDB(){
+    static void populateDB(){
         Driver driver = new Driver(
                 "38s%$dseSE",
                 "Tim",
