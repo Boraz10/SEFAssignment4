@@ -28,6 +28,25 @@ class DriverIT {
     }
 
     @Test
+    void addDuplicate(){
+        DriverRepository.clearDB();
+        Driver driver = new Driver(
+                "38s%$dseSE",
+                "Tim",
+                4,
+                "Heavy",
+                "10|Swanston Street|Melbourne|VIC|Australia",
+                "22-11-1990"
+                );
+        DriverRepository.add(driver);
+        DriverRepository.add(driver);
+        //only one instance of tim in the db
+        String expected = "38s%$dseSE Tim 4 Heavy 10|Swanston Street|Melbourne|VIC|Australia 22-11-1990\n";
+        String db = getDBString();
+        assertTrue(db.equals(expected),"expected: " + expected + " but got " + db);
+    }
+
+    @Test
     void update() {
         DriverRepository.clearDB();
         Driver driver = new Driver(
