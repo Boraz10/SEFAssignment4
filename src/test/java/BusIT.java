@@ -12,7 +12,6 @@ class BusIT {
     void busIsWhereSheIsMeantToBe() {
         
         BusRepository.clearDB();
-        int prev = BusRepository.count();
         Bus bus = new Bus("22222222", "45mn!@opNO", 40, 30.0, "Diesel");
         BusRepository.add(bus);
         Bus stored = BusRepository.retrieve("22222222");
