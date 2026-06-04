@@ -25,12 +25,16 @@ public class BusRepository {
             return;
         }
 
+        if (!bus.updateDriver(bus.getDriver().getDriverID())) {
+            return;
+        }
+
         // Validate bus details
         if (!validateBus(bus)) {
             return;
         }
 
-        // Check if bus of this ID is already present
+        // B1: Check if bus of this ID is already present
         for (Bus other : busList) {
             String thisBusID = bus.getBusID();
             if (other.getBusID().equals(thisBusID)) {
@@ -53,7 +57,7 @@ public class BusRepository {
     }
 
     // Update bus details based on the busID
-    public static void update(String busID, int capacity, double fuelLevel, String fuelType) throws IOException {
+    public static void update(String busID, String driverID, int capacity, double fuelLevel, String fuelType) throws IOException {
 
         // Iterate through list of busses to try to find the bus in question
         for (int i = 0; i < busList.size(); ++i) {
@@ -63,6 +67,12 @@ public class BusRepository {
                 // validate new bus details
                 if (!Bus.validateFuelType(fuelType)) { return; }
 
+                // validate fuel change
+                if (!b.validCapacity(capacity)) { return; }
+
+                if (!b.updateDriver(driverID)) {
+                    return;
+                }
                 // Update bus details (in the arraylist, using the buses update function)
                 b.updateDetails(capacity, fuelLevel, fuelType);
 
@@ -75,7 +85,7 @@ public class BusRepository {
     }
 
     // Update bus details based on the index (starting at 0)
-    public static void update(int index, int capacity, double fuelLevel, String fuelType) throws IOException {
+    public static void update(int index, String driverID, int capacity, double fuelLevel, String fuelType) throws IOException {
 
         // Check range of index
         if (index >= busList.size() || index < 0) {
@@ -88,6 +98,13 @@ public class BusRepository {
 
         // validate new bus details
         if (!Bus.validateFuelType(fuelType)) { return; }
+
+        // validate fuel change
+        if (!b.validCapacity(capacity)) { return; }
+
+        if (!b.updateDriver(driverID)) {
+            return;
+        }
 
         // Update that buses details
         b.updateDetails(capacity, fuelLevel, fuelType);
@@ -137,15 +154,16 @@ public class BusRepository {
         try (BufferedReader br = Files.newBufferedReader(path)) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Split each line based on spaces. Each line would be exaclty 4 elements long.
+                // Split each line based on spaces. Each line would be exaclty 6 elements long.
                 // Element[0] = bus ID
-                // Element[1] = fuel Capacity
-                // Element[2] = fuel Level
+                // Element[1] = driver ID
+                // Element[2] = fuel Capacity
+                // Element[3] = fuel Level
                 // Element[4] = fuel type
                 String[] elements = line.split("\\s+");
 
                 // Create new bus object based on info from the database
-                Bus bus = new Bus(elements[0], Integer.parseInt(elements[1]), Double.parseDouble(elements[2]), elements[3]);
+                Bus bus = new Bus(elements[0], elements[1], Integer.parseInt(elements[2]), Double.parseDouble(elements[3]), elements[4]);
 
                 // add bus to the temp arraylist
                 list.add(bus);
@@ -161,6 +179,7 @@ public class BusRepository {
     // Helper function which creates string from bus info, useful for writing to the database
     private static String busToString(Bus bus) {
         return    bus.getBusID() + " "
+                + bus.getDriver().getDriverID() + " "
                 + bus.getCapacity() + " "
                 + bus.getFuelLevel() + " "
                 + bus.getFuelType();
